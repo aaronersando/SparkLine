@@ -25,7 +25,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "SparkLine",
-  description: "Where ideas ignite growth",
+  description: "Where Ideas Ignite Growth",
 };
 
 export default function RootLayout({

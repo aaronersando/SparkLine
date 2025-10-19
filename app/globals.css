@@ -1,29 +1,200 @@
+/* css-lint-disable */
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap");
+
+/* css-lint-disable-next-line */
+@plugin "tailwindcss-animate";
+
+/* Tailwind CSS v4 import syntax */
 @import "tailwindcss";
 
+/* css-lint-disable-next-line */
+@custom-variant dark (&:is(.dark *));
+
+/* --------------------------
+   SPARKLINE: design tokens
+   Dark-first palette + typography
+   -------------------------- */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --font-sora: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
-  --font-inter: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-jetbrains: var(--font-jetbrains), ui-monospace, monospace;
+  /* Radius */
+  --radius: 0.625rem; /* 10-16px guideline, 12px chosen */
+
+  /* Raw color tokens (dark theme primary palette) */
+  --bg-900: #05060a; /* page background */
+  --bg-800: #0b0f15; /* cards / sections */
+  --bg-700: #111318; /* panels / modals */
+  --surface-muted: #131821;
+
+  --txt-primary: #e6eef6; /* main readable text */
+  --txt-secondary: #a9b6c2; /* subtitles / meta */
+  --txt-muted: #6b7480; /* placeholders / disabled */
+
+  --border: #1e2933; /* divider / outlines */
+
+  --accent-cyan: #0ea5ff; /* primary accent (CTA / links) */
+  --accent-ember: #ffb020; /* secondary accent / highlights */
+
+  --success: #22c55e;
+  --warning: #ffb020;
+  --danger: #ff5c7c;
+  --info: #60a5fa;
+
+  --focus-ring: rgba(14, 165, 255, 0.18);
+
+  /* fonts (for use by components and fallback stacks) */
+  --font-sora: "Sora", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
+  --font-inter: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
+    "Roboto Mono";
+
+  /* small tokens */
+  --card-radius: 12px;
+  --shadow-soft: 0 6px 18px rgba(2, 6, 10, 0.6);
+
+  /* Map shadcn / theme tokens to our palette so shadcn components pick them up */
+  --background: var(--bg-900);
+  --foreground: var(--txt-primary);
+  --card: var(--bg-800);
+  --card-foreground: var(--txt-primary);
+  --popover: var(--bg-700);
+  --popover-foreground: var(--txt-primary);
+  --primary: var(--accent-cyan);
+  --primary-foreground: #041021; /* dark text for cyan buttons */
+  --secondary: var(--accent-ember);
+  --secondary-foreground: #041021;
+  --muted: var(--surface-muted);
+  --muted-foreground: var(--txt-muted);
+  --accent: var(--accent-cyan);
+  --accent-foreground: var(--txt-primary);
+  --destructive: var(--danger);
+  --input: #0b141a; /* subtle input bg on dark */
+  --ring: var(--focus-ring);
+
+  /* charts / sidebar tokens (kept for shadcn compatibility) */
+  --chart-1: #ffb020;
+  --chart-2: #0ea5ff;
+  --chart-3: #60a5fa;
+  --chart-4: #22c55e;
+  --chart-5: #ff5c7c;
+
+  /* sidebar mapping */
+  --sidebar: var(--bg-800);
+  --sidebar-foreground: var(--txt-primary);
+  --sidebar-primary: var(--accent-cyan);
+  --sidebar-primary-foreground: #041021;
+  --sidebar-accent: var(--accent-ember);
+  --sidebar-accent-foreground: #041021;
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--focus-ring);
 }
 
+/* base element styles */
+html,
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--font-sora);
+  color: var(--foreground);
+  margin: 0;
+}
+
+code,
+pre,
+kbd {
+  font-family: var(--font-mono);
+  color: var(--foreground);
+}
+
+/* shadcn / theme mapping (inline theme) */
 @theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* dark variant mapping kept for compatibility (if you toggle .dark class) */
+.dark {
+  /* keep mapped variables consistent for dark mode */
+  --background: var(--bg-900);
+  --foreground: var(--txt-primary);
+  --card: var(--bg-800);
+  --card-foreground: var(--txt-primary);
+  --popover: var(--bg-700);
+  --popover-foreground: var(--txt-primary);
+  --primary: var(--accent-cyan);
+  --primary-foreground: #041021;
+  --secondary: var(--accent-ember);
+  --secondary-foreground: #041021;
+  --muted: var(--surface-muted);
+  --muted-foreground: var(--txt-muted);
+  --accent: var(--accent-cyan);
+  --accent-foreground: var(--txt-primary);
+  --destructive: var(--danger);
+  --border: var(--border);
+  --input: #0b141a;
+  --ring: var(--focus-ring);
+
+  --chart-1: #ffb020;
+  --chart-2: #0ea5ff;
+  --chart-3: #60a5fa;
+  --chart-4: #22c55e;
+  --chart-5: #ff5c7c;
+}
+
+/* minimal base layer to hook into tailwind utility classes */
+@layer base {
+  * {
+    /* keep a sensible default border + outline token available for components */
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+/* end of globals.css */
