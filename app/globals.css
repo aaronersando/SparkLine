@@ -3,6 +3,9 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-sora: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+  --font-inter: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-jetbrains: var(--font-jetbrains), ui-monospace, monospace;
 }
 
 @theme inline {
