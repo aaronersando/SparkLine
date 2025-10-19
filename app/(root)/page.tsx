@@ -1,6 +1,11 @@
-import SearchForm from "../components/SearchForm";
+import SearchForm from "../../components/SearchForm";
 
-export default function Home() {
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: Promise<{ query?: string }>;
+}) {
+  const query = (await searchParams).query;
   return (
     <>
       <section className="w-full min-h-[530px] flex justify-center items-center flex-col py-10 px-6 bg-[linear-gradient(90deg,rgba(14,165,255,0.06),rgba(255,176,32,0.02))] pattern">
@@ -12,7 +17,7 @@ export default function Home() {
           Competitions.
         </p>
 
-        <SearchForm />
+        <SearchForm query={query} />
       </section>
     </>
   );
