@@ -186,7 +186,6 @@ kbd {
   --chart-5: #ff5c7c;
 }
 
-/* minimal base layer to hook into tailwind utility classes */
 @layer base {
   * {
     /* keep a sensible default border + outline token available for components */
@@ -196,5 +195,3 @@ kbd {
     @apply bg-background text-foreground;
   }
 }
-
-/* end of globals.css */
