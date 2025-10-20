@@ -4,6 +4,7 @@ import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 import { Button } from "./ui/button";
+import { Startup, Author } from "@/sanity/types";
 
 export type StartupTypeCard = Omit<Startup, "author"> & { author?: Author };
 
@@ -29,7 +30,7 @@ const StartupCard = ({ post }: { post: StartupTypeCard }) => {
       <div className="relative w-full h-48 overflow-hidden">
         <Image
           src={image || "https://placehold.co/600x400"}
-          alt={title}
+          alt={title || "Startup image"}
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-105"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -46,7 +47,7 @@ const StartupCard = ({ post }: { post: StartupTypeCard }) => {
       {/* Content */}
       <div className="flex flex-col flex-1 p-5">
         {/* Category Badge */}
-        <Link href={`/?query=${category.toLowerCase()}`}>
+        <Link href={`/?query=${category?.toLowerCase()}`}>
           <span className="inline-block text-xs font-semibold text-[#0EA5FF] mb-3">
             {category}
           </span>

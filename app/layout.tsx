@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { Sora } from "next/font/google";
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import "easymde/dist/easymde.min.css";
 
 // Define fonts
 const sora = Sora({
