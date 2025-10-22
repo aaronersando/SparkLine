@@ -1,7 +1,7 @@
 {
   "servers": {
     "Sentry": {
-      "url": "https://mcp.sentry.dev/mcp/aaron-gabriel-ersando/javascript-nextjs",
+      "url": "https://mcp.sentry.dev/mcp/aaron-gabriel/javascript-nextjs",
       "type": "http"
     }
   }
