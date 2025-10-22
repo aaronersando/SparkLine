@@ -75,73 +75,99 @@ const StartupForm = () => {
   });
 
   return (
-    <form action={formAction} className="startup-form">
+    <form
+      action={formAction}
+      className="py-10 max-w-2xl mx-auto my-10 space-y-8 px-6 rounded bg-[var(--txt-primary)] text-[color:var(--bg-900)]"
+    >
       <div>
-        <label htmlFor="title" className="startup-form_label">
+        <label
+          htmlFor="title"
+          className="font-bold text-[18px] uppercase text-[color:var(--bg-900)] "
+        >
           Title
         </label>
         <Input
           id="title"
           name="title"
-          className="startup-form_input"
+          className="w-full px-5 py-7 text-[18px] font-semibold rounded-full mt-3 border-[3px] border-[var(--border)] bg-transparent text-[color:var(--bg-900)]"
           required
           placeholder="Startup Title"
         />
 
-        {errors.title && <p className="startup-form_error">{errors.title}</p>}
+        {errors.title && (
+          <p className="text-[color:var(--danger)] mt-2 ml-5">{errors.title}</p>
+        )}
       </div>
 
       <div>
-        <label htmlFor="description" className="startup-form_label">
+        <label
+          htmlFor="description"
+          className="font-bold text-[18px] uppercase text-[color:var(--bg-900)] "
+        >
           Description
         </label>
         <Textarea
           id="description"
           name="description"
-          className="startup-form_textarea"
+          className="w-full p-5 text-[18px] font-semibold rounded-[20px] mt-3 border-[3px] border-[var(--border)] bg-transparent text-[color:var(--bg-900)]"
           required
           placeholder="Startup Description"
         />
 
         {errors.description && (
-          <p className="startup-form_error">{errors.description}</p>
+          <p className="text-[color:var(--danger)] mt-2 ml-5">
+            {errors.description}
+          </p>
         )}
       </div>
 
       <div>
-        <label htmlFor="category" className="startup-form_label">
+        <label
+          htmlFor="category"
+          className="font-bold text-[18px] uppercase text-[color:var(--bg-900)]"
+        >
           Category
         </label>
         <Input
           id="category"
           name="category"
-          className="startup-form_input"
+          className="w-full px-5 py-7 text-[18px] font-semibold rounded-full mt-3 border-[3px] border-[var(--border)] bg-transparent text-[color:var(--bg-900)]"
           required
           placeholder="Startup Category (Tech, Health, Education...)"
         />
 
         {errors.category && (
-          <p className="startup-form_error">{errors.category}</p>
+          <p className="text-[color:var(--danger)] mt-2 ml-5">
+            {errors.category}
+          </p>
         )}
       </div>
 
       <div>
-        <label htmlFor="link" className="startup-form_label">
+        <label
+          htmlFor="link"
+          className="font-bold text-[18px] uppercase text-[color:var(--bg-900)]"
+        >
           Image URL
         </label>
         <Input
           id="link"
           name="link"
-          className="startup-form_input"
+          className="w-full px-5 py-7 text-[18px] font-semibold rounded-full mt-3 border-[3px] border-[var(--border)] bg-transparent text-[color:var(--bg-900)]"
           required
           placeholder="Startup Image URL"
         />
 
-        {errors.link && <p className="startup-form_error">{errors.link}</p>}
+        {errors.link && (
+          <p className="text-[color:var(--danger)] mt-2 ml-5">{errors.link}</p>
+        )}
       </div>
 
       <div data-color-mode="light">
-        <label htmlFor="pitch" className="startup-form_label">
+        <label
+          htmlFor="pitch"
+          className="font-bold text-[18px] uppercase text-[color:var(--bg-900)]"
+        >
           Pitch
         </label>
 
@@ -161,12 +187,14 @@ const StartupForm = () => {
           }}
         />
 
-        {errors.pitch && <p className="startup-form_error">{errors.pitch}</p>}
+        {errors.pitch && (
+          <p className="text-[color:var(--danger)] mt-2 ml-5">{errors.pitch}</p>
+        )}
       </div>
 
       <Button
         type="submit"
-        className="startup-form_btn text-white"
+        className="rounded-full p-5 min-h-[70px] w-full font-bold text-[18px] bg-[var(--accent-cyan)] text-[color:#041021] border-[4px] border-[var(--border)]"
         disabled={isPending}
       >
         {isPending ? "Submitting..." : "Submit Your Pitch"}
@@ -174,7 +202,7 @@ const StartupForm = () => {
       </Button>
 
       {state.error && state.status === "ERROR" && (
-        <p className="startup-form_error mt-4">{state.error}</p>
+        <p className="text-[color:var(--danger)] ml-5 mt-4">{state.error}</p>
       )}
     </form>
   );
