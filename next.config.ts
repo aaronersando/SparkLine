@@ -7,12 +7,8 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "*",
-        // pathname: "/**",
       },
     ],
-  },
-  experimental: {
-    ppr: "incremental",
   },
   devIndicators: {
     position: "bottom-right",

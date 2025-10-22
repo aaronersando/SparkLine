@@ -11,7 +11,7 @@ import View from "@/components/View";
 
 const md = markdownit();
 
-export const experimantal_ppr = true;
+// export const experimental_ppr = true;
 
 const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
   const id = (await params).id;
@@ -38,6 +38,7 @@ const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
       </section>
 
       <section className="px-6 py-10 max-w-7xl mx-auto">
+        {/* // eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={post.image}
           alt="thumbnail"
@@ -89,7 +90,6 @@ view-container"
             </p>
           )}
         </div>
-
         <hr className="divider" />
       </section>
 

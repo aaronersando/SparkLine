@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Sora } from "next/font/google";
 import { JetBrains_Mono } from "next/font/google";
+import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
 import "easymde/dist/easymde.min.css";
 
@@ -40,6 +41,7 @@ export default function RootLayout({
         className={`${sora.variable} ${inter.variable} ${jetbrainsMono.variable} font-sora antialiased`}
       >
         {children}
+        <Toaster />
       </body>
     </html>
   );
